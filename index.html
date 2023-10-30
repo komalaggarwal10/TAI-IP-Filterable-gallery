@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filterable responsive gallery</title>
+
+    <!-- magnific-popup css cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+
+<div class="gallery">
+
+    <ul class="controls">
+        <li class="buttons active" data-filter="all">all</li>
+        <li class="buttons" data-filter="animals">animals</li>
+        <li class="buttons" data-filter="plants">plants</li>
+        <li class="buttons" data-filter="mountains">mountains</li>
+        <li class="buttons" data-filter="oceans">oceans</li>
+        <li class="buttons" data-filter="planets">planets</li>
+    </ul>
+
+    <div class="image-container">
+
+        <a href="images/animal1.jfif" class="image animals">
+            <img src="images/animal1.jfif" alt="">
+        </a>
+        <a href="images/animal2.jfif" class="image animals">
+            <img src="images/animal2.jfif" alt="">
+        </a>
+        <a href="images/animal3.jfif" class="image animals">
+            <img src="images/animal3.jfif" alt="">
+        </a>
+        <a href="images/animal4.jfif" class="image animals">
+            <img src="images/animal4.jfif" alt="">
+        </a>
+        <a href="images/animal5.jpg" class="image animals">
+            <img src="images/animal5.jpg" alt="">
+        </a>
+
+        <a href="images/plant1.jfif" class="image plants">
+            <img src="images/plant1.jfif" alt="">
+        </a>
+        <a href="images/plant2.jfif" class="image plants">
+            <img src="images/plant2.jfif" alt="">
+        </a>
+        <a href="images/plant3.jpg" class="image plants">
+            <img src="images/plant3.jpg" alt="">
+        </a>
+        <a href="images/plant4.jpg" class="image plants">
+            <img src="images/plant4.jpg" alt="">
+        </a>
+        <a href="images/plant5.jpg" class="image plants">
+            <img src="images/plant5.jpg" alt="">
+        </a>
+        
+
+        <a href="images/mountain1.jfif" class="image mountains">
+            <img src="images/mountain1.jfif" alt="">
+        </a>
+        <a href="images/mountain2.jfif" class="image mountains">
+            <img src="images/mountain2.jfif" alt="">
+        </a>
+        <a href="images/mountain3.jfif" class="image mountains">
+            <img src="images/mountain3.jfif" alt="">
+        </a>
+        
+
+        <a href="images/ocean1.jfif" class="image oceans">
+            <img src="images/ocean1.jfif" alt="">
+        </a>
+        <a href="images/ocean2.jpg" class="image oceans">
+            <img src="images/ocean2.jpg" alt="">
+        </a>
+        <a href="images/ocean3.jfif" class="image oceans">
+            <img src="images/ocean3.jfif" alt="">
+        </a>
+        <a href="images/ocean4.jpg" class="image oceans">
+            <img src="images/ocean4.jpg" alt="">
+        </a>
+
+        <a href="images/earth.jpg" class="image planets">
+            <img src="images/earth.jpg" alt="">
+        </a>
+
+        <a href="images/saturn.jfif" class="image planets">
+            <img src="images/saturn.jfif" alt="">
+        </a>
+        <a href="images/jupiter.jfif" class="image planets">
+            <img src="images/jupiter.jfif" alt="">
+        </a>
+        <a href="images/mars.jfif" class="image planets">
+            <img src="images/mars.jfif" alt="">
+        </a>
+        <a href="images/neptune.jfif" class="image planets">
+            <img src="images/neptune.jfif" alt="">
+        </a>
+        
+        <a href="images/uranus.jpg" class="image planets">
+            <img src="images/uranus.jpg" alt="">
+        </a>
+        
+
+    </div>
+
+</div>
+
+
+<!-- jquery cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- magnific popup js cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+    $('.buttons').click(function(){
+
+        $(this).addClass('active').siblings().removeClass('active');
+
+        var filter = $(this).attr('data-filter')
+
+        if(filter == 'all'){
+            $('.image').show(400);
+        }else{
+            $('.image').not('.'+filter).hide(200);
+            $('.image').filter('.'+filter).show(400);
+        }
+
+    });
+
+    $('.gallery').magnificPopup({
+
+        delegate:'a',
+        type:'image',
+        gallery:{
+            enabled:true
+        }
+
+    });
+
+});
+
+</script>
+    
+</body>
+</html>
